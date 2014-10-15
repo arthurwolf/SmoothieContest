@@ -277,14 +277,15 @@
                         <p> Coding a general purpose rotary axis module would be pretty much as easy as doing a fairly simple rewrite of the Extruder module, and thing through exactly how the module would be used as to make it convenient. </p>
                         <img src="http://littlemachineshop.com/Products/Images/480/480.3519.jpg" style="width:100%">
                         <h4> Add more actuator outputs</h4>
-
-
-
-
-
-
-                        
-                        
+                        <p> Some arm solutions work with cartesian coordinates as an input, but require more than three actuators as an output</p>
+                        <p> Smoothie already has support for unlimited actuators ( that's what allows us to have unlimited extruders ). However, the arm solutions still support only 3 actuators as an output. </p>
+                        <p> It shouldn't be too hard to modify the arm solution abstraction to support more than 3 actuators, it would make a good contest entry, and would open the way to the next item in this list : </p>
+                        <img src="http://www.cortona3d.com/system/files/283/custom/robot_arm-jpg.jpg" style="width:100%">
+                        <h4> Add more coordinates to the planner </h4>
+                        <p> While cartesian coordinates are often enough ( XYZ as input ), some machines need more : rotational coordinates. That's the case for example of 5-axis CNC milling machines, or complex robotic arms </p>
+                        <p> Adding this to Smoothie is the most complicated item in this list, because it requires modifying the look-ahead queue, and acceleration planning math. </p>
+                        <p> However, if you feel like this is something you could do, this is a very welcome contribution. And we can help </p>
+                        <img src="http://cncestablishment.com/wp-content/uploads/2011/11/Turbine-by-5-Axis-CNC-Machine.jpg" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
@@ -295,9 +296,18 @@
                 <div class="modal fade" id="modal-model" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
-                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> 
+                          <h4 class="modal-title" id="myModalLabel"> Integrate model-based heating</h4> 
+                      </div>
                       <div class="modal-body">
-                        ...
+                        <p> Smoothie currently supports two methods of temperature control : </p>
+                        <p> The pretty dumb "bang-bang" methode, that just turns temperature on or off when bellow or above a set temperature point </p>
+                        <p> And <a href="http://en.wikipedia.org/wiki/PID_controller"> PID </a> which uses a feedback loop and some clever math to maintain a set temperature </p>
+                        <h4> Model-based heating </h4>
+                        <p> <a href="http://monkeyinthejungle.net/"> ElMonkey </a> coded a clever bit of code that takes into account heating power and propagation speed into the material, which could result into very stable temperature control </p>
+                        <p> However, <a href="http://code.monkeyinthejungle.net/fossil/gmf.fossil/artifact/0e901365fd23a15c5d40bcc54b3d05a7193eaf96"> that code </a> is not in Smoothie. Integrating it into Smoothie and testing it would be a pretty
+                        cool contest entry. And presumably not a too difficult one. </p>
+                        <img src="http://monkeyinthejungle.net/stuff/upshot/upshot_l7EIb0Gp.png" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
