@@ -129,7 +129,7 @@
     <p> After that, we'll be choosing projects very fast, and awesomeness should ensue</a>
 
     <blockquote class="blockquote-reverse">
-        <h2>Where do I submit a project ?</h2>
+        <h2>Where do I submit my project ?</h2>
         <footer> Right here </footer>
     </blockquote>
 
@@ -144,6 +144,202 @@
     <div class="bs-callout bs-callout-info" role="alert"><h4>If you have questions</h4> 
       <p> About anything, don't hesitate to write too ! </p>
     </div>
+
+    <blockquote class="blockquote-reverse">
+        <h2>Have any ideas of projects to do ?</h2>
+        <footer> Sure ! </footer>
+    </blockquote>
+
+    <p> Some of you will know right away what you want to submit for the contest. Others might not feel inspired, or not know enough about the Smoothie project yet to have an idea what to do. Bellow is a list of things we know Smoothie needs. </p>
+
+    <div class="bs-callout bs-callout-warning" role="alert"><h4>These are just examples</h4> 
+      <p> No requirement whatsoever to choose from this list, all ideas welcome, even if they are not from this list and not variations on ideas from this list. </p>
+    </div>
+
+    <div class="bs-callout bs-callout-danger" role="alert"><h4>You get help</h4> 
+      <p> Some of these might seem hard, but you won't be left alone ! For most of them we already know what needs to be done, and how to do them. We may even have some code already. We'll help you as much as you need. </p>
+    </div>
+
+    <p> Click on an item bellow to learn more about it. In no particular order : </p>
+
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <h4>Code</h4>
+            <div class="list-group">
+                
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-"></a>
+                <div class="modal fade" id="modal-" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-armsolutions"> Add a new arm solution </a>
+                <div class="modal fade" id="modal-armsolutions" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add a new arm Solution</h4> </div>
+                      <div class="modal-body">
+                          <p> An <a href="http://en.wikipedia.org/wiki/Arm_solution"> arm solution </a> is a set of equations that allow a controller like Smoothie to control a specific type of robot with a given geometry.</p>
+                          <p> Simply put, an arm solution translates spatial positions ( XYZ ) into actuator positions ( motor movements ). It also has to do the opposite. The user provides a target position, and Smoothie has to translate that into actual movement </p>
+                          <p> The most common arm solution is the <a href="http://en.wikipedia.org/wiki/Cartesian_coordinate_robot"> cartesian arm solution </a>, in which the requested spatial position is directly proportional to the actuator's positions. </p>
+                          <p> A good example of a more complex arm solution is the <a href="http://reprap.org/wiki/Rostock"> linear delta arm solution </a> which requires some trigonometry to do the conversion. </p>
+                          <h4> In Smoothie </h4>
+                          <p> In Smoothie, arm solutions are abstracted away. This means you only have to add one, separate file, to add an arm solution </p>
+                          <p> All the code for that arm solution is contained in that file. This allows you to add a new arm solution without having to dig into the code or even understand too much about how things work under the hood. </p>
+                          <h4> As a project </h4>
+                          <p> If you have a machine that requires an unusual ( currently unsupported ) arm solution, or plan to build one, adding it to Smoothie would make a great contest entry. </p>
+                          <img src="http://www.parallemic.org/Material//DeltaScheme.gif" style="width:100%"> 
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-spindlecontrol">Add spindle control</a>
+                <div class="modal fade" id="modal-spindlecontrol" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Add spindle control</h4> </div>
+                      <div class="modal-body">
+                          <p> Smoothie has basic spindle control ( ON/OFF ) using the <a href="http://smoothieware.org/switch"> Switch </a> module.</p>
+                          <p> However, that's pretty limited if you have something more complicated than a dremel on your CNC mill/router, and if you want rotation speed control. </p>
+                          <p> Most serious machines have <a href="http://en.wikipedia.org/wiki/Variable-frequency_drive"> VFDs </a> controlling their Spindles. Those have a panel that allow you to manually turn them on and off, and set the rotation speed </p>
+                          <p> Wouldn't it be nice if you could use Smoothie to control all of that ? </p>
+                          <p> Great news ! The most common of those VFDs have <a href="http://en.wikipedia.org/wiki/RS-485"> RS-485 </a> serial interfaces allowing you to control pretty much everything </p>
+                          <p> Even better : <a href="https://plus.google.com/u/0/113179837473309823193"> +Miguel Sánchez </a> recently created some <a href="http://fightpc.blogspot.fr/2014/10/vfd-control-with-arduino-using-rs485.html"> Arduino code </a> to do this </p>
+                          <p> So, a good contest entry would be porting this code as a module for Smoothie. Not too hard to do, but ideally you'd need to have a compatible VFD on-hand to test the code with </a>
+                          <img src="http://www.automationtechnologiesinc.com/wp-content/uploads/2011/11/KL-VFD22-1024x1024.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-engraving"> Add laser engraving</a>
+                <div class="modal fade" id="modal-engraving" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add laser engraving </h4> </div>
+                      <div class="modal-body">
+                        <p> Smoothie has laser control, vector cutting, vector engraving ( all using G-codes ). </p>
+                        <p> But say you want to engrave a raster image. Well we don't have that yet. </p>
+                        <p> The microcontroller is capable of it. Actually <a href="https://github.com/logxen"> Logxen </a> created a <a href="https://github.com/logxen/Smoothie/tree/laser_engrave"> branch </a> to do just that back in 2012.</p>
+                        <p> It gave some interresting results, unfortunately since then the code structure has changed and that code won't work anymore </p>
+                        <p> However, we know what needs to be done, and there is already a good part of the code done. </p>
+                        <p> If you have a laser ( even a small one attached to a 3D printer ), this is a pretty good entry for the contest </p>
+                        <img src="http://jamesstokebrand.files.wordpress.com/2012/09/vectorandrastorfillengravingsample_blond_bamboo.jpg?w=900" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-wizard">Be a USB wizard</a>
+                <div class="modal fade" id="modal-wizard" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">You're a wizard, Harry</h4> </div>
+                      <div class="modal-body">
+                        <p> Smoothie has a very nice feature : composite USB. If you plug the board into a computer, you can access it's virtual Serial port to talk to it, but it also shows up as a mass storage device, exposing the contents of it's SD card
+                        to the user </p>
+                        <p> That's super convenient as it allows you to edit configuration super easily, and drag/drop G-code files directly to the board. </p>
+                        <p> However, we have a tad of a problem : on some setups of some versions of Windows, it appears our code does something the OS doesn't like, and that occasionally ( for some people even often ) causes bugs. </p> 
+                        <p> There are workarounds for users affected, but those involve disabling some functionality ( specificaly the Mass storage feature ), which makes us very sad. </p> 
+                        <p> If you know USB well, and happen to have a USB analyzer ( or know USB so well you'd spot this kind of thing without one ), this is a contest entry your skills could make quite easy </p>
+                        <p> Don't hesitate to contact us to learn exactly what's involved here </p> 
+                        <img src="http://www.kroah.com/log/images/usb-mess.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-axes">Add more axes</a>
+                <div class="modal fade" id="modal-axes" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add more axes </h4> </div>
+                      <div class="modal-body">
+                        <p> Smoothie currently supports 3-axis coordinates ( XYZ / Cartesian ) input, and 3 actuators for movement output. </p>
+                        <p> That's fine in lots of situations, we have several arm solutions for which 3 inputs and 3 outputs are good enough </p>
+                        <p> Plus we have additional axes in the form of unlimited extruder ( specialized rotary axes ) modules </p>
+                        <p> However, there are things that can be added to make things awesomer. Some are easy, some are hard, all are good contest entries. Here's a list : </p>                       
+                        <h4> General use rotary axes</h4>
+                        <p> This is the easy one. Right now you could use an <a href="http://smoothieware.org/extruder"> Extruder </a> module as a general purpose rotary axis.</p>
+                        <p> However that's a bit of a hack, there are functionalities in there you wouldn't need, and others that might interfere. </p>
+                        <p> Coding a general purpose rotary axis module would be pretty much as easy as doing a fairly simple rewrite of the Extruder module, and thing through exactly how the module would be used as to make it convenient. </p>
+                        <img src="http://littlemachineshop.com/Products/Images/480/480.3519.jpg" style="width:100%">
+                        <h4> Add more actuator outputs</h4>
+
+
+
+
+
+
+                        
+                        
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-model">Integrate model-based heating</a>
+                <div class="modal fade" id="modal-model" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-servo"> Add hobby servo control</a>
+                <div class="modal fade" id="modal-servo" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h4>Documentation</h4>
+        
+      
+        </div>
+    </div>
+
 
 
     
@@ -193,7 +389,7 @@
 
     <p> Contributing to Smoothie is easy. That's actually one of the main design goals for the project. If you want to help us, we want to make your life as easy as possible ( the code is actually structured <a href="http://smoothieware.org/moduleexample">with that in mind</a> ). </p>
 
-    <p> But that's not something that is in any way obvious, or easy to show. So the best way to get people to see it is give them a good reason to try it. </p>
+    <p> But that's not something that is in any way obvious, or easy to show. So the best way to get people to see it is give them a good reason to try it, and then let them tell others their experience. </p>
 
     <h3> Giving back </h3>
 
