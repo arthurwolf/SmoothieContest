@@ -318,18 +318,116 @@
                 <div class="modal fade" id="modal-servo" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
-                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add hobby servo control </h4> </div>
                       <div class="modal-body">
-                        ...
+                        <p> Smoothie currently only supports stepper motors with step/direction interfaces. </p>
+                        <p> That's what it has on-board, and it can also easily connect ( the right pins are broken out ) to external stepper motor drivers. </p>
+                        <p> Some servo drivers also have step/direction interfaces, and those are compatible </p>
+                        <p> However, someone might want to control small hobby servo motors using Smoothieboard </p>
+                        <p> Luckily Smoothie has abstracted actuators away. This means that if you code a special type of actuator to handle hobby servos, you shouldn't need to change anything else in Smoothie. </p>
+                        <p> You'd just need to make a new version of <a href="https://github.com/Smoothieware/Smoothieware/blob/edge/src/libs/StepperMotor.cpp"> StepperMotor </a> and some code to allow the user to configure an actuator as a hobby servo
+                        and there you go, you'd pretty much be able to control a whole machine using all of smoothie's niceness, that was moved by hobby servos. <a href="http://www.instructables.com/id/Low-Cost-Hobby-Servo-XY-Table"> Something like this </a> </p>
+                        <p> This is a pretty easy contest entry </p> 
+                        <img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Micro_servo.jpg" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
                   </div>
                 </div>
  
-
-
-
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-catchup">Add temperature catchup</a>
+                <div class="modal fade" id="modal-catchup" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add temperature catchup </h4> </div>
+                      <div class="modal-body">
+                        <p> 3D printers go fast nowadays. As they go faster and faster, they have to melt more and more filament. And sometimes they have a hard time doing that, as the filament won't flow well enough at high speeds. </p>
+                        <p> It's been theorized a solution to this problem : heat the hotend more as speed rises. </p>
+                        <p> This should make the molten filament more viscous and allow it to pass the hotend more easily </p>
+                        <p> This is not too hard to add to the Extruder module : it's already aware of the current speed ( though you may need to work with an average of recent values ), and is linked to a TemperatureControl module </p>
+                        <p> It's not guaranteed this will solve the problem, but it's a good idea to try things, and this is a pretty easy contest entry. </p>
+                        <img src="http://ultimaker.ipbhost.com/uploads/gallery/album_33/gallery_3723_33_14479.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-advance">Add extruder advance</a>
+                <div class="modal fade" id="modal-advance" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add extruder advance </h4> </div>
+                      <div class="modal-body">
+                          <p> Smoothie uses acceleration when moving. This means we start slow, accelerate, and then when arriving at our destination, decelerate to a reasonable speed </p>
+                          <p> This prevents stepper motors from skipping steps, and helps your machine shake a lot less at high speeds when changing directions </p>
+                          <p> However, when extruding plastics in a hotend, this can cause a problem : because there is a small delay between the moment the extruder pushes filament into the hotend
+                          and the moment it gets out of the hotend, this means a bit too much plastic will get out when accelerating/decelerating, and a bit of plastic will be missing in the middle 
+                          of the move </p>
+                          <p> You can see an example of this in the picture bellow ( on the right ) : </p>
+                          <img src="https://camo.githubusercontent.com/83598807d2df26ea08eaa56225617424ef9bb031/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f3730383836382f323137343634372f30336133343161632d393562342d313165332d393830352d6266373163366564636331342e4a5047" style="width:100%">
+                          <p> A solution to this is as follows : add a number of steps to the current extruder position proportional to the current machine speed. </p>
+                          <p> This adds some plastic to the extrusion at the right points, and with correct configuration, should solve the problem. </p>
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-lathe">Add lathe support</a>
+                <div class="modal fade" id="modal-lathe" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add lathe support </h4> </div>
+                      <div class="modal-body">
+                          <p> Lathes are cool. You can make round things ! </p>
+                          <p> While Smoothie should work as-is for basic CNC lathe machining work, one thing is missing </p>
+                          <p> X/Z movement is exactly the same thing as what you use for a CNC mill, so that works. But a lathe has something special : rotation </p>
+                          <p> If that's controlled correctly it allows you to do crazy things like threading. </p>
+                          <p> But that requires Smoothie to be aware of the exact speed of the rotation, and the exact position of the chuck. </p>
+                          <p> So one would need to add encoder reading and speed control to a special Lathe module in Smoothie to allow for all of this. </p>
+                          <p> While it's only moderately difficult, it requires you own or have access to a CNC lathe ... but this is a contest entry lots of folks would be interrested in </p>
+                          <img src="http://atyourservice.haascnc.com/wp-content/uploads/2010/06/v12-i40-Threading-the-String_1-450px.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-pause">Add slow pause</a>
+                <div class="modal fade" id="modal-pause" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add slow pause </h4> </div>
+                      <div class="modal-body">
+                        <p> Smoothie has a pause system : you press a button, things stop moving. You press it again, they start where they left off. </p>
+                        <p> However it's too crude : the stop is instantaneous, meaning you most probably will loose steps and thus position accuracy if moving too fast. That's bad. </p>
+                        <p> It pretty much makes that function an "emergency stop" instead of a pause button </p>
+                        <p> A good contest entry would be to make this a soft pause : decelerate to a stop, then enter pause mode. The planner will take care of re-accelerating on restart without you worrying about that. But the deceleration needs to be implemented </p>
+                        <p> It involves, when the pause button is pressed, refusing to add more blocks to the queue ( or the acceleration would be re-calculated, negating your efforts ), then recalculating the blocks in the queue to lead them to a full stop with deceleration, and finally, allow for restarting the machine </p>
+                        <img src="http://cdn.the7gracesofmarketing.com/wp-content/uploads/2013/11/Stimpy-presses-shiny-red-button-animated.gif" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-bootloader">Add bootloader check</a>
+                <div class="modal fade" id="modal-bootloader" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add bootloader check </h4> </div>
+                      <div class="modal-body">
+                        <p> This is a pretty simple one : the bootloader doesn't currently check if the firmware is valid before flashing it </p>
+                        <p> This causes some problems with users flashing the wrong file and the bootloader flashing garbage as a result </p>
+                        <p> Adding checks for validity of the firmware file to the bootloader would solve this </p>
+                        <img src="http://img2.wikia.nocookie.net/__cb20110307094037/matrix/images/8/84/Matrix.png" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+                
 
 
 
