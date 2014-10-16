@@ -419,9 +419,10 @@
                     <div class="modal-content">
                       <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add bootloader check </h4> </div>
                       <div class="modal-body">
-                        <p> This is a pretty simple one : the bootloader doesn't currently check if the firmware is valid before flashing it </p>
+                        <p> This is a relatively simple one : the bootloader doesn't currently check if the firmware is valid before flashing it </p>
                         <p> This causes some problems with users flashing the wrong file and the bootloader flashing garbage as a result </p>
                         <p> Adding checks for validity of the firmware file to the bootloader would solve this </p>
+                        <p> There is some difficulty however, in that we have pretty much filled up the space alloted to the bootloader in flash, so you'll need to free a bit of it </p>
                         <img src="http://img2.wikia.nocookie.net/__cb20110307094037/matrix/images/8/84/Matrix.png" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
@@ -541,7 +542,6 @@
                     </div>
                   </div>
                 </div>
-                
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-surface">Add surface scanning</a>
                 <div class="modal fade" id="modal-surface" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
