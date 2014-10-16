@@ -114,6 +114,7 @@
     <h3> And who wins ? </h3>
     <p> When we have everybody's project in hand, we'll ask the community for help and ultimately choose the 30 we judge the best and most awesome contributions to the project. </p>
     <p> And those 30 each get a Smoothieboard ! </p>
+    <p> Then they do their project, and everybody gets increased awesomeness </p>
 
     <div class="bs-callout bs-callout-warning" role="alert"><h4>If you don't win don't worry.</h4> 
       <p> We plan on doing this again ! <br/>
@@ -453,17 +454,17 @@
                     <div class="modal-content">
                       <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Add encoder support </h4> </div>
                       <div class="modal-body">
-
-
-
-
-
+                          <p> Encoders allow heading a linear or rotational position. When attached to a stepper motor or axis, they enable checking for errors in position. </p>
+                          <p> Adding encoder input to Smoothieboard would allow the board to report errors, or even recover from those automatically. </p> 
+                          <p> While depending on speeds and resolution, Smoothieboard may not be able to support all encoder setups as-is ( due to processing power constraints ), it should still be quite useful in a lot of situations. </p>
+                          <p> And with the future FPGA-enabled version of Smoothieboard, any processing power constraints will dissapear. </p>
+                          <p> So, adding encoder reading to Smoothieboard would make a nifty contest entry </p>
+                          <img src="http://www.orientalmotor.com/images/technical-articles/servo-motor-incremental-encoder.jpg" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
                   </div>
                 </div>
-
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-slave">Add slave axes</a>
                 <div class="modal fade" id="modal-slave" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -471,13 +472,16 @@
                     <div class="modal-content">
                       <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Add slave axes</h4> </div>
                       <div class="modal-body">
-                        ...
+                        <p> Sometimes you want one axis to have more than one stepper motor </p>
+                        <p> You can do that using a single stepper motor driver, and wiring two stepper motors to it in parralel, but that might now give you enough power for each motor </p>
+                        <p> In that case, you'd want to have one stepper motor per stepper driver, and both stepper drivers doing exactly the same thing </p>
+                        <p> Smoothie doesn't know how to do this yet, but it's really just a matter of a bit of clever Object-Oriented/inheritence coding. We can guide you there. </p>
+                        <img src="http://cdn.shopify.com/s/files/1/0318/9541/products/other_side_view_1024x1024.jpg?v=1386971426" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
                   </div>
                 </div>
-                
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-tangential">Add tangential knife</a>
                 <div class="modal fade" id="modal-tangential" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -485,7 +489,12 @@
                     <div class="modal-content">
                       <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Add tangential knife</h4> </div>
                       <div class="modal-body">
-                        ...
+                        <p> This is a fairly easy one </p>
+                        <p> A tangential knife is essentially an additional axis to the machine that orients a knife ( usually an exacto-knife-type-thing ) in the same direction as the machine is moving. </p>
+                        <p> This allows to cut with the cutting side of the blade facing what needs to be cut next. </p>
+                        <p> It also opens some interresting possibilities such as integrating wires into extruded plastic on 3D printers, and other weird techniques </p>
+                        <p> This is fairly simple to code : Create a new module, have it compute the current orientation, and have it move the rotational axis accordingly </p>
+                        <img src="http://www.triomotion.com/tmt3/imgs/prog_examples/tangknife.gif" style="width:100%"> 
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
@@ -498,13 +507,22 @@
                     <div class="modal-content">
                       <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Add tool change</h4> </div>
                       <div class="modal-body">
-                        ...
+                        <p> CNC milling machines can do anything. They are awesome. One thing that's so great about them is that you can have tools in all shapes and forms for them, allowing you to do many different tasks efficiently </p>
+                        <p> But what happens if you need to use several different tools in making a single part ? Two solutions, both of which are possible with Smoothie's standard features, but would be much better with some code designed specifically for them : </p>
+                        <h4> Manual tool change </h4>
+                        <p> This is how this works : you put a special G-code in your G-code file at the point where the tool needs to be changed. 
+                        When Smoothie encounters that G-code, it stops the machine, you change the tool, and Smoothie waits for you to press a button before starting again. </p>
+                        <p> This is fairly simple to code/add. </p>
+                        <h4> Automated tool change </h4>
+                        <p> This is pretty much the same thing, but the machine automatically takes care of changing the tool for you. </p>
+                        <p> This means the machine must be aware of where the tools are ( that can be set in the configuration file ), and has a procedure of movement and actions to change to each tool. </p>
+                        <p> This is a bit more complex to add, but it would be so cool to see in action, and it's very very useful </p>
+                        <img src="http://www.romanblack.com/CNC/tool.jpg" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
                   </div>
                 </div>
-                
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-radius">Add radius circles</a>
                 <div class="modal fade" id="modal-radius" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -512,7 +530,12 @@
                     <div class="modal-content">
                       <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Add radius circles</h4> </div>
                       <div class="modal-body">
-                        ...
+                        <p> Smoothie supports circular interpolation ( G2 and G3 G-codes ) </p>
+                        <p> The parameters supported are the I and J parameters, defining a relative target point to the current position. </p>
+                        <p> However, some G-code generators generate files that use the R ( radius ) parameter instead. </p>
+                        <p> Adding support for this would make Smoothie supported by more G-code generators ( in particular Inkscape's G-code plugin ) </p>
+                        <p> It requires a bit of knowledge of math, but the code should be fairly simple as it's similar to what's already in there. </p>
+                        <img src="http://www.mechanicalengineeringblog.com/wp-content/uploads/2011/01/image7.png" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
@@ -526,7 +549,11 @@
                     <div class="modal-content">
                       <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Add surface scanning</h4> </div>
                       <div class="modal-body">
-                        ...
+                        <p> This is probably a very easy one </p>
+                        <p> Surface scanning allows you to use a probe to measure a grid of points on the surface of an object and get back a surface map </p>
+                        <img src="http://illuminutti.files.wordpress.com/2012/12/mola-mars-water_map_wblack.jpg" style="width:100%">
+                        <p> Now here's the great news : this was already coded ! The code is <a href="https://github.com/Smoothieware/Smoothieware/blob/edge/src/modules/tools/touchprobe/Touchprobe.cpp"> here </a></p>
+                        <p> But the thing is, it was coded a long while ago, and nobody has used it since. So it may need a bit of fixing and love, and maybe move a few things to newer functionalities added to Smoothie </p>
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
@@ -573,7 +600,14 @@
 
 
 
+    <div class="bs-callout bs-callout-warning" role="alert"><h4> Have more ideas ? </h4> 
+      <p> Want to see them in this list so that someone chooses to submit one to the contest ? <br/>
+      Contact us via <a href="mailto:wolf.arthur@gmail.com"> email </a> </p>
+    </div>
 
+    <div class="bs-callout bs-callout-danger" role="alert"><h4> Something sounds too hard ? </h4> 
+        <p> It's probably easier than you think : Smoothie is designed to make contributor's life easier, the code is structured to make additions easier, we most probably already have a good idea/plan of how to do things, and there is probably more of it already done than you realize. Contact us :)  </p>
+    </div>
 
     <blockquote class="blockquote-reverse">
         <h2>Who is doing this ?</h2>
