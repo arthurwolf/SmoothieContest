@@ -654,17 +654,91 @@
                   </div>
                 </div>
 
-
-                queue refactor / config refactor / move to M4  / PWM support for switch for hobby servos
-
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-queue">Queue refactor</a>
+                <div class="modal fade" id="modal-queue" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Queue refactor</h4> </div>
+                      <div class="modal-body">
+                          <p> Smoothie is modular. This means every function is separated into modules. There is one for extruders, one for lasers, etc ... </p>
+                          <p> This is pretty nice as it allows you to code a new function as a module by adding a single file and not having to mingle in the core of Smoothie or know ( too much ) about it </p>
+                          <p> This makes contributions easier, and the code base much cleaner </p>
+                          <p> However, when this modular system was initially coded, not too much care was taken for memory usage </p>
+                          <p> There is a queue system in Smoothie in which commands are stacked for later execution </p>
+                          <p> This allows to look forward to future movements to accurately plan acceleration </p>
+                          <p> However, the way we did it, we currently store G-codes along with movements so that G-codes get executed at the right time </p>
+                          <p> This is very memory inneficient </p>
+                          <p> Smoothie needs a refactor in which instead of storing full G-codes, modules are allowed to store only single pieces of data into the queue ( by having their own, smaller and synchronous queue ) </p>
+                          <p> This would not only allow for lower RAM usage, but also for faster processing speed in the real-time parts of Smoothie </p>
+                          <p> This is quite a lot of work, but we know what needs to be done and we can help </p>
+                          <img src="http://wiki.linuxcnc.org/uploads/tp_simple.png" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
                 
-
-
-
-
-
-
-
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-config">Config refactor</a>
+                <div class="modal fade" id="modal-config" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Config refactor </h4> </div>
+                      <div class="modal-body">
+                          <p> Smoothie has a pretty neat configuration system that allows you to configure pretty much everything using a single configuration file on the SD card.</p>
+                          <p> No more recompiling, no more reflashing. That makes quite a few people happy </p>
+                          <p> Internally, Smoothie reads the whole configuration file, parses it, stores it in RAM and then allows each module to request values when they initialize </p>
+                          <p> This is inneficient in several ways : it is overly complex, it takes up a lot of RAM, and it makes reloading config complicated </p>
+                          <p> For a while the community has been considering what we call the "config refactor" </p>
+                          <p> Essentially Smoothie would just read the whole configuration file, and then, for each line encountered, call an event. Each module could check if it's a value it is interrested in, and act from that </p>
+                          <p> Much simpler, much better, much smoothier </p>
+                          <p> The main problem here is, it requires changing the configuration section of -all- of Smoothie's module, which is quite a bit of work </p>
+                          <img src="http://jaysolomon.files.wordpress.com/2008/10/optimism.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+                
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-m4"> Move to Cortex-M4 </a>
+                <div class="modal fade" id="modal-m4" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Move to Cortex-M4 </h4> </div>
+                      <div class="modal-body">
+                          <p> Ok so, we don't think anybody will be insane enough to do this just for a Smoothieboard, but we have to put it here anyway because we really want it to happen </p>
+                          <p> And well ... this is not really about getting a Smoothieboard, it's also about doing something awesome, and people do that all the time just for awesomeness' sake </p>
+                          <p> So, we want to move Smoothieboard to Cortex-M4 at some point. That'd add so much awesomeness to everything </p>
+                          <p> But before we can do that, Smoothie must be ported to LPC4357 ( the chip we chose ). </p>
+                          <p> It's a ton of work, but not only will it allow for a super cool version of Smoothie, it will also simplify work on future ports </p>
+                          <p> Contact us for details on what is involved here. We'd help a lot of course </p>
+                          <img src="http://img04.taobaocdn.com/imgextra/i4/62273619/T2QUzhXapaXXXXXXXX_!!62273619.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+                
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-fpga"> FPGA Magic </a>
+                <div class="modal fade" id="modal-fpga" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> FPGA Magic </h4> </div>
+                      <div class="modal-body">
+                        <p> So, on future versions of Smoothieboard, we'll do something pretty cool. There will be a footprint for a FPGA on the board. </p>
+                        <p> For pricing reasons it won't be soldered to the base model, but there'll be a version with a FPGA on board </p>
+                        <p> In prepraration for this, we are looking for any help in programming the FPGA, and for help in coding Smoothie's interfacing of the FPGA </p>
+                        <p> Contact us for more information on what is involved </p>
+                        <img src="https://team.inria.fr/cairn/files/2013/08/eFPGA-layout-virtuoso.png" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+                
 
 
             </div>
