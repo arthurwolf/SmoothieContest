@@ -236,6 +236,9 @@
                         <p> However, we know what needs to be done, and there is already a good part of the code done. </p>
                         <p> If you have a laser ( even a small one attached to a 3D printer ), this is a pretty good entry for the contest </p>
                         <img src="http://jamesstokebrand.files.wordpress.com/2012/09/vectorandrastorfillengravingsample_blond_bamboo.jpg?w=900" style="width:100%">
+                        <p> There are two paths here, an easy one and a hard one. Both are valid, but the hard one allows to reach optimal engraving speed </p>
+                        <p> The easy way is to code a Smoothie module that take a bitmap image and interprets it as G-code that it feeds back into Smoothie itself.</p>
+                        <p> The hard way is to have a module that reads the bitmap image, and directly controls the motors and laser. </p>
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
@@ -567,18 +570,94 @@
                       <div class="modal-body">
                         <p> This is probably a very easy one </p>
                         <p> Surface scanning allows you to use a probe to measure a grid of points on the surface of an object and get back a surface map </p>
-                        <img src="http://illuminutti.files.wordpress.com/2012/12/mola-mars-water_map_wblack.jpg" style="width:100%">
+                        <p><img src="http://illuminutti.files.wordpress.com/2012/12/mola-mars-water_map_wblack.jpg" style="width:100%"></p>
                         <p> Now here's the great news : this was already coded ! The code is <a href="https://github.com/Smoothieware/Smoothieware/blob/edge/src/modules/tools/touchprobe/Touchprobe.cpp"> here </a></p>
                         <p> But the thing is, it was coded a long while ago, and nobody has used it since. So it may need a bit of fixing and love, and maybe move a few things to newer functionalities added to Smoothie </p>
+                        <img src="http://chibidibidiwah.wdfiles.com/local--files/gallery/CBr5vB7ODYKEXWCUnQZ7lXb-VpH8zNHD2Neevo_nsxg.png" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
                   </div>
                 </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-jogging">Better jogging</a>
+                <div class="modal fade" id="modal-jogging" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Better jogging</h4> </div>
+                      <div class="modal-body">
+                          <p> Panels are great. They have a screen, and either some buttons or a rotary encoder, and you can use this to control your machine without the need for a computer. </p>
+                          <p> Smoothie has a module to control several of those, but we get a complaint about a part of that code </p>
+                          <p> Jogging requires you select an axis, then select a distance offset, then finally it gets you into jogging mode for that axis </p> 
+                          <p> It'd be great if you just had to select an axis, then jogging distance offset/speed would be dependent on the speed of rotation for the encoder</p>
+                          <p> This is a pretty simple modification </p>
+                          <img src="http://chibidibidiwah.wdfiles.com/local--files/smoothiepanel/Smoothiepanel-Proto4%20asm-sm.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-switches">Better limit switches</a>
+                <div class="modal fade" id="modal-switches" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Better limit switches </h4> </div>
+                      <div class="modal-body">
+                          <p> Smoothie supports limit switches : if you hit the end of one of your axes ( hit the endstop there ), Smoothie will stop doing what it's doing so it won't damage your machine </p>
+                          <p> However, once that happens, you can't restart anything, Smoothie is pretty much in panic mode and you have to reset </p>
+                          <p> It'd be cool if it was modified so that Smoothie returns to a safe state, and allows you to continue working </p>
+                          <p> This is pretty simple to add </p>
+                          <img src="http://img.directindustry.com/images_di/photo-g/compact-limit-switches-14692-4387243.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-filament"> Measure filament diameter </a>
+                <div class="modal fade" id="modal-" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Measure filament diameter</h4> </div>
+                      <div class="modal-body">
+                          <p> Smoothie supports volumetric extrusion. This means instead of telling smoothie what length of filament to extrude all the time, 
+                          your slicing program can just tell Smoothie what volume of filament to extrude proportional to the distance travelled. </p> 
+                          <p> To do this you have to tell Smoothie what is the diameter of your filament </p>
+                          <p> What's great about this is that if you could have Smoothie measure the diameter of your filament by itself, it'd eliminate all the problems associated with 
+                          filament diameters being out of spec, or filament diameter varying across a roll of filament </p>
+                          <p> To do this you must find an adequate sensor, and add a bit of code to the Extruder module </p>
+                          <img src="http://haveblue.org/wordpress/wp-content/uploads/2011/02/filamentprogression.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-extruderencoder"> Add extruder encoder </a>
+                <div class="modal fade" id="modal-extruderencoder" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">Add extruder encoder</h4> </div>
+                      <div class="modal-body">
+                          <p> Plastic is awesome, but we don't handle it very gently. </p>
+                          <p> Hobbed gears push the filament into your hotend, but by doing so it puts quite a bit of stress on the plastic, and sometimes, it eats it to the point it's not able to push it anymore </p>
+                          <p> And sometimes your hotend gets clogged and you can't get anything to pass through it anymore </p>
+                          <p> Also on <a href="http://reprap.org/wiki/Erik%27s_Bowden_Extruder"> Bowden </a> setups, there can be a delay between your gear pushing the filament, and the movement happening at the end of the tube </p>
+                          <p> The problem in all of these is that the electronics are not aware of whether or not the filament is actually moving, and at what speed. It just tells the filament to move, it does not know if/how it does </p>
+                          <p> If someone were to add encoder reading of filament movement close to the hotend to the Extruder module, it would allow to detect problems, and to get better flow in bowden setups </p>
+                          <p> This is pretty experimental, but would be so awesome </p>
+                          <img src="http://2n2r5.com/pictures/printer/Lawys_bowden3.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                queue refactor / config refactor / move to M4  / PWM support for switch for hobby servos
+
                 
-
-
-
 
 
 
@@ -592,7 +671,13 @@
         </div>
         <div class="col-lg-6">
             <h4>Documentation</h4>
-        
+            
+            
+            
+            
+            <h4>Machines</h4>
+            Embroidery / Vinyl cutter / 4-axis
+
       
         </div>
     </div>
@@ -699,6 +784,12 @@
 
 
 
+    <blockquote class="blockquote-reverse">
+        <h2>Any rules to this contest ?</h2>
+        <footer> A few. </footer>
+    </blockquote>
+
+    <p> Code contributions should respect Smoothie's <a href="http://smoothieware.org/coding-standards"> coding standards </a> and pull requests should follow our <a href="http://smoothieware.org/github"> github quidelines </a>. Please make sure you read them. </p>
 
 
 
