@@ -43,9 +43,32 @@
         <p class="lead">Or, a contest to increase and promote the Smoothie project's awesomeness</p>
     </div>
 
+    <div class="bs-callout bs-callout-success" role="alert"><h4>In short</h4> 
+      <p> 
+        Don't want to read the whole page ? Get a quick explanation of what this is about 
+        <a href="#" class="" data-toggle="modal" data-target="#modal-inshort">Here</a>
+    </div>
+
+    <div class="modal fade" id="modal-inshort" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel">In short</h4> </div>
+          <div class="modal-body">
+            <p> This is a contest organised by the <a href="http://smoothieware.org"> Smoothie project </a> to encourage contributions and generally increase awesomeness </p>
+            <p> Contestants enter ideas for projects ( contributions to the code, documentation, build logs, and others ), on December 1st 30 projects will be chosen, and each project will immediately get a Smoothieboard. </p>
+            <p> Getting the Smoothieboard is not conditionned upon completing the project, winners will get it immediately after being selected </p>
+            <p> A list of ideas for projects is provided, but any project is welcome </p>
+            <p> You can submit multiple projects but only one project can be accepted by person. Don't worry though we'll be doing this again. </p>
+          </div>
+          <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+        </div>
+      </div>
+    </div>
+    
+
     <blockquote class="blockquote-reverse">
         <h2>What do I win ?</h2>
-        <footer>A <a href="http://smoothieware.org/smoothieboard">Smoothiebord</a> of course</footer>
+        <footer>A <a href="http://smoothieware.org/smoothieboard">Smoothieboard</a> of course</footer>
     </blockquote>
 
     If you win, you will get a 5XC ( 5 drivers with connectors ) Smoothieboard, as well as : <br/> <br/>
@@ -94,7 +117,7 @@
     </div>
 
     <div class="bs-callout bs-callout-info" role="alert"><h4>Not too inspired ?</h4> 
-        But still want to win ? We have a list of good ideas <a href="#"> here </a>
+        But still want to participate ? We have a list of good ideas <a href="#"> here </a>
     </div>
 
     <blockquote class="blockquote-reverse">
@@ -653,7 +676,6 @@
                     </div>
                   </div>
                 </div>
-
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-queue">Queue refactor</a>
                 <div class="modal fade" id="modal-queue" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -678,7 +700,6 @@
                     </div>
                   </div>
                 </div>
-                
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-config">Config refactor</a>
                 <div class="modal fade" id="modal-config" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -693,14 +714,13 @@
                           <p> For a while the community has been considering what we call the "config refactor" </p>
                           <p> Essentially Smoothie would just read the whole configuration file, and then, for each line encountered, call an event. Each module could check if it's a value it is interrested in, and act from that </p>
                           <p> Much simpler, much better, much smoothier </p>
-                          <p> The main problem here is, it requires changing the configuration section of -all- of Smoothie's module, which is quite a bit of work </p>
+                          <p> The main problem here is, it requires changing the configuration section of -all- of Smoothie's modules, which is quite a bit of work </p>
                           <img src="http://jaysolomon.files.wordpress.com/2008/10/optimism.jpg" style="width:100%">
                       </div>
                       <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
                     </div>
                   </div>
                 </div>
-                
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-m4"> Move to Cortex-M4 </a>
                 <div class="modal fade" id="modal-m4" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -720,7 +740,6 @@
                     </div>
                   </div>
                 </div>
-                
  
                 <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-fpga"> FPGA Magic </a>
                 <div class="modal fade" id="modal-fpga" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -738,19 +757,230 @@
                     </div>
                   </div>
                 </div>
-                
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-webif"> Web interface </a>
+                <div class="modal fade" id="modal-webif" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Web interface </h4> </div>
+                      <div class="modal-body">
+                          <p> Smoothieboard has an ethernet connector on-board. That's a bit unique, and it allows for some very neat things </p>
+                          <p> For example you can send commands via telnet as if you were using a normal USB or UART serial port. And then there is a http server on-board. </p>
+                          <p> This allows us to serve a web interface that allows you to control the machine </p>
+                          <p> The web interface we have now is very simple and basic ( it's stored in flash after all, not much room there ) </p>
+                          <p> But we are preparing a very nice web interface ( served from the SD card ), called <a href="https://github.com/arthurwolf/Mousse"> Mousse </a> </p>
+                          <p> This will allow you not only to upload files to the board, control the machine, but we also plan to support browsing online repositories of CAD files, 
+                          in-browser CAD design, in-browser/cloud slicing and CAM, and lots of neat things like this that would make this a true next-generation control interface </p>
+                          <p> Mousse is designed the same way as Smoothie : modular, to make contributions easy. It's still in it's early stages, and we need help ! </p>
+                          <p> "All" you need to know is HTML/CSS/Javascript. If you know some of that, contributing to the web interface would make a nice contest entry. There is too much to do to list here really, but contact us and we can give you ideas </p>
+                          <img src="http://startbootstrap.com/assets/img/templates/sb-admin.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
 
 
             </div>
         </div>
         <div class="col-lg-6">
             <h4>Documentation</h4>
+        
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-"></a>
+                <div class="modal fade" id="modal-" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-svgboard"> Vector Smoothieboard </a>
+                <div class="modal fade" id="modal-svgboard" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Vector Smoothieboard </h4> </div>
+                      <div class="modal-body">
+                          <p> We want to do a few things that need a vector drawing of a Smoothieboard </p>
+                          <p> Diagrams in the documentation, a configuration wizard in the web interface that allows you to configure the board just by clicking on it </p>
+                          <p> We'd love to have a board drawing in the <a href="http://fritzing.org/">Fritzing</a> style, so we can then import it into Fritzing, which would make diagrams pretty easy to do </p>
+                          <p> If you are a vector artist, we can provide you with the DXF files, which should simpify things </p>
+                          <p> This would be very useful to the community, especially to newcomers </p>
+                          <p> We also need vector drawings of the connectors for the board </p>
+                          <a href="https://www.flickr.com/photos/arthurwolf/15438048110" title="first try by wolf.arthur, on Flickr"><img src="https://farm6.staticflickr.com/5607/15438048110_889484d231_o.jpg" style="width:100%" alt="first try"></a>
+                      </div>
+
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-svgothers"> Vector others </a>
+                <div class="modal fade" id="modal-svgothers" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Vector others </h4> </div>
+                      <div class="modal-body">
+                          <p> We want to have as exhaustive a documentation as possible. Documentation is very important </p>
+                          <p> It's so easy to have a super cool open-source project, but no way for people to learn to use it than to <a href="http://m1.img.srcdd.com/farm2/d/2011/1021/16/0CA5EA0C4314DF7DE32DB338A36D670C_B500_900_500_375.JPEG">
+                              read the code </a> </p>
+                          <p> As a part of this, we want to make diagrams of how to wire Smoothieboard to various types of external boards/peripherals </p>
+                          <p> For example : solid state relays, external stepper motor drivers, sensors, etc ... </p>
+                          <p> If you know how to do vector graphics, making SVG drawings of some of these would be a nice contest entry </p>
+                          <img src="http://image.dhgate.com/albu_286016366_00/1.0x0.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-guides">Guides</a>
+                <div class="modal fade" id="modal-guides" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Guides </h4> </div>
+                      <div class="modal-body">
+                          <p> Documenting everything in detail is great, but it's not necessarily what you need if you just want to get started as soon as possible <p>
+                          <p> Who wants to read everything ( and we have a lot ) if you really need just a part of it in your specific case </p>
+                          <p> That's why we wrote the three guides we have so far : <a href="http://smoothieware.org/3d-printer-guide"> 3D printer </a>, <a href="http://smoothieware.org/CNC-Mill-guide"> CNC mill </a> and <a href="http://smoothieware.org/laser-cutter-guide"> Laser cutter</a> </p>
+                          <p> But we need more guides ! Deltas are pretty complex to setup, we need a good guide for that. That's a big subject but there are simpler ones : setting up network connectivity, how to install and use host software ( Pronterface for example ), how to ground a machine properly ( for dummies, which most of us are when it comes to that ), or how to wire and use external stepper motor drivers </p>
+                          <p> Also, the existing guides need love. Things can be made clearer, and more can be said </p>
+                          <p> Any contribution to the guides, or new guides, are good contest entries </p> 
+                          <img src="http://www.gadgetguy.com.au/cms/wp-content/uploads/h2g2-game-450x188.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+        
             
             
             
-            
-            <h4>Machines</h4>
-            Embroidery / Vinyl cutter / 4-axis
+            <h4>Smoothiefying machines</h4>
+    
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-"></a>
+                <div class="modal fade" id="modal-" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-machine-vinyl"> Vinyl cutter</a>
+                <div class="modal fade" id="modal-machine-vinyl" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Vinyl cutter </h4> </div>
+                      <div class="modal-body">
+                          <p> If you have access to a vinyl cutter, and want to put a Smoothieboard into it, documenting that process would make a great contest entry. </p>
+                          <p> It'd allow others to do the same, and allow us to pinpoint things that Smoothie needs to get to make it more fit to those machines </p>
+                          <p> As most vinyl cutters are mostly just simple 2 axis machines with a simple on/off tool, this contest entry should be fairly easy </p>
+                          <img src="http://fab.cba.mit.edu/content/processes/PCB/vinyl1.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-4thaxis"> 4th axis </a>
+                <div class="modal fade" id="modal-4thaxis" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> 4th axis </h4> </div>
+                      <div class="modal-body">
+                          <p> If you have access to a 4 axis CNC machine, and want to put a Smoothieboard into it, documenting that process would make a great contest entry. </p>
+                          <p> It'd allow others to do the same, and allow us to pinpoint things that Smoothie needs to get to make it more fit to those machines </p>
+                          <p> Unless somebody does a rotary axis module as part of this contest, you'll need to use the Extruder module for this, but it still should be fairly simple. It's actually
+                          already been done before, you just need to do it -and- document it </p>
+                          <img src="http://www.3d-machine.com/images/helicoptor%20tow%20hook2.JPG" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-embroidery"> Embroidery machine </a>
+                <div class="modal fade" id="modal-embroidery" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Embroidery machine </h4> </div>
+                      <div class="modal-body">
+                        <p> Let's be honest, we are not exactly sure of everything that's involved in controlling an embroidery machine </p>
+                        <p> But it looks like it's something Smoothie can do </p>
+                        <p> And it'd be so nice having one of those machines controlled by an Open-Source board </p>
+                        <p> If you have an embroidery machine, and want to put a Smoothieboard in it, and document the process, it'd be a great contest entry we think </p>
+                        <img src="http://www.sewingmachinesplus.com/media/products/Brother/Brother/bro_pr1000_original2.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-machine-lathe"> Lathe </a>
+                <div class="modal fade" id="modal-machine-lathe" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Lathe </h4> </div>
+                      <div class="modal-body">
+                          <p> If you have access to a CNC lathe, and want to put a Smoothieboard into it, documenting that process would make a great contest entry. </p>
+                          <p> It'd allow others to do the same, and allow us to pinpoint things that Smoothie needs to get to make it more fit to those machines </p>
+                          <p> As most lathes are mostly just simple 2 axis machines, this contest entry should be fairly easy </p>
+                          <p> There are more to lathes ( for example taking into account chuck speed/position for thread cutting ), but that's not supported yet </p>
+                          <p> However if somebody adds this as part of the contest ( see the "code" ideas ), it'd make -your- contest entry that much awesomer </p>
+                          <img src="http://upload.wikimedia.org/wikipedia/commons/3/37/Cockatoo_Island_Giant_Lathe_HDR_%288034521631%29.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+    
+
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-plasma"> Plasma cutter </a>
+                <div class="modal fade" id="modal-plasma" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Plasma cutter </h4> </div>
+                      <div class="modal-body">
+                          <p> Plasma cutting is like a sci-fi thing. It's like magic. </p>
+                          <p> If you have access to a CNC plasma cutter, and want to put a Smoothieboard into it, documenting that process would make a great contest entry. </p>
+                          <p> It'd allow others to do the same, and allow us to pinpoint things that Smoothie needs to get to make it more fit to those machines </p>
+                          <p> As most plasma cutters are mostly just simple 2 axis machines, this contest entry should be fairly easy </p>
+                          <p> Apparently you need to do some weird thing with making sure the torch is working, and restarting it if it doesn't, we don't know much about that, but you'll probably need to figure that out </p>
+                          <img src="http://upload.wikimedia.org/wikipedia/commons/5/56/Cnc_plasma_cutting.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+ 
+                <a href="#" class="list-group-item" data-toggle="modal" data-target="#modal-picknplace"> Pick and place</a>
+                <div class="modal fade" id="modal-picknplace" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Pick and place</h4> </div>
+                      <div class="modal-body">
+                          <p> Pick and place machines pick components from rolls and place them on PCBs </p>
+                          <p> The <a href="http://openpnp.org/"> OpenPNP </a> project is an awesome project to design an open-source PNP machine and the required hardware for it </p>
+                          <p> If you have such a machine, or a professional PNP machine, and want to put a Smoothieboard into it, and document the process, it'd make for a very nice contest entry </p>
+                          <img src="http://hackedgadgets.com/wp-content/uploads/2012/12/269-High-Speed-Automatic-Pick-and-Place-Machine.jpg" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
 
       
         </div>
@@ -783,6 +1013,88 @@
     <div class="bs-callout bs-callout-danger" role="alert"><h4> Something sounds too hard ? </h4> 
         <p> It's probably easier than you think : Smoothie is designed to make contributor's life easier, the code is structured to make additions easier, we most probably already have a good idea/plan of how to do things, and there is probably more of it already done than you realize. Contact us :)  </p>
     </div>
+
+    <blockquote class="blockquote-reverse">
+        <h2>Any entries yet ?</h2>
+        <footer> Here is a list of what we received so far </footer>
+    </blockquote>
+
+    <table class="table table-stripped">
+
+        <tr> <th> Entry </th> <th> By </th> <th> Date </th> </tr>  
+
+        <tr>
+            <td>
+                <a href="#" class="" data-toggle="modal" data-target="#modal-"></a>
+                <div class="modal fade" id="modal-" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"></h4> </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+            </td> 
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td>
+                <a href="#" class="" data-toggle="modal" data-target="#modal-entry-smoothieboardsvg"> Smoothieboard SVG </a>
+                <div class="modal fade" id="modal-entry-smoothieboardsvg" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> Smoothiebard SVG </h4> </div>
+                      <div class="modal-body">
+                        <p> Corentin wants to draw a SVG of Smoothieboard, in the <a href="http://fritzing.org/home/"> Fritzing </a> style </p>
+                        <p> This is very much needed for diagrams in the documentation, and integrating it into Fritzing will make things very easy for these diagrams, as well as for users of Fritzing with Smoothie projects </p>
+                        <p> He's already started, here is a first draft bellow </p>
+                        <a href="https://www.flickr.com/photos/arthurwolf/15438048110" title="first try by wolf.arthur, on Flickr"><img src="https://farm6.staticflickr.com/5607/15438048110_889484d231_o.jpg" style="width:100%" alt="first try"></a>
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+            </td> 
+            <td> Corentin Le Bris </td>
+            <td> 27/10 </td>
+        </tr>
+
+        <tr>
+            <td>
+                <a href="#" class="" data-toggle="modal" data-target="#modal-entry-glcdadapter"> GLCD adapter </a>
+                <div class="modal fade" id="modal-entry-glcdadapter" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> <h4 class="modal-title" id="myModalLabel"> GLCD Adapter </h4> </div>
+                      <div class="modal-body">
+                        <p> Laurent made a nice adapter to make it easy to plug a <a href="http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller"> ReprapDiscount GLCD Panel </a> into Smoothieboard.</p> 
+                        <p> The RRD GLCD comes with a RAMPS adapter, but wiring it to Smoothieboard without an adapter is quite messy, so this is something a lot of people want </p>
+                        <p> He's now making a new adapter to support the recently added multiple SD card system in Smoothie </p>
+                        <p> All that's left to do is make a prototype, test it, and fix things if needed </p>
+                        <img src="https://github.com/llegoff/GlcdAdapter2/raw/master/3dTop.png" style="width:100%">
+                      </div>
+                      <div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div>
+                    </div>
+                  </div>
+                </div>
+            </td> 
+            <td> Laurent Le Goff  </td>
+            <td> 27/10 </td>
+        </tr>
+
+
+
+
+
+
+
+    </table>
+
 
     <blockquote class="blockquote-reverse">
         <h2>Who is doing this ?</h2>
